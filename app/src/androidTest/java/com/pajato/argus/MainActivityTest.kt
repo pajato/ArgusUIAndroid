@@ -45,7 +45,6 @@ class MainActivityTest {
 
     @Test
     fun onOptionsItemSelectedWithNormalItem() {
-        val activity = rule.activity
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext())
         onView(withText("Settings")).perform(click())
     }
