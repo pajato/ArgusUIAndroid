@@ -1,0 +1,5 @@
+* Intractable problems to solve
+** JUnit 5
++ Following the instruction at https://github.com/mannodermaus/android-junit5 leads to an unresolved class having to do
+  with Jacoco.  If you have Android Studio 3.3 Canary 11 (or later) with Jacoco, Kotlin and Junit5, I'd love to see your
+  build scripts.
