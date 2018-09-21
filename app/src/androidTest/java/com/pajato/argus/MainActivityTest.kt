@@ -9,7 +9,6 @@ import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.view.Menu
-import org.hamcrest.Matchers.allOf
 import org.junit.Assert
 import org.junit.Rule
 import org.junit.Test
@@ -31,28 +30,22 @@ class MainActivityTest {
     }
 
     @Test
-    fun clicking_on_the_FAB_button_triggers_the_anonymous_handler() {
-        onView(withId(R.id.fab)).check(matches(isDisplayed())).perform(click())
-        onView(allOf(withId(android.support.design.R.id.snackbar_text), withText("Replace with your own action")))
-                .check(matches(isDisplayed()))
-    }
-    @Test
     fun onCreateOptionsMenu() {
         val activity = rule.activity
-        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext())
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
         Assert.assertTrue(activity.optionsMenu is Menu)
     }
 
     @Test
     fun onOptionsItemSelectedWithNormalItem() {
-        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext())
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
         onView(withText("Settings")).perform(click())
     }
 
     @Test
     fun onOptionsItemSelectedWithTestItem() {
         val activity = rule.activity
-        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext())
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
         activity.optionsMenu?.apply {
             activity.onOptionsItemSelected(findItem(R.id.test))
             return
@@ -63,7 +56,7 @@ class MainActivityTest {
     @Test
     fun testSetOptionsMenu() {
         val activity = rule.activity
-        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext())
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
         val menu = activity.optionsMenu
         activity.optionsMenu = menu
     }
